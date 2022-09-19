@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.0-beta1 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css
+"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="containter">
+        <form name="form01" onsubmit="validateForm()">
+          <fieldset id="section1">
+              <legend>ข้อมูลสำหรับผู้สมัครสมาชิกชมรม</legend>
+              <label for="fname_th">ชื่อ</label>
+              <input type="text" name="fname_th" id="fname_th" placeholder="(ภาษาไทย)">
+              <label for="lname_th">นามสกุล</label>
+              <input type="text" name="lname" id="lname_th" placeholder="(ภาษาไทย)">
+              <label for="fname_en">ชื่อ</label>
+              <input type="text" name="fname_en" id="fname_en" placeholder="(ภาษาอังกฤษ)">
+              <label for="lname_en">นามสกุล</label>
+              <input type="text" name="lname_en" id="lname_en" placeholder="(ภาษาอังกฤษ)">
+              <class for="sid">รหัสนักศึกษา</label>
+              <input type="text" name="sid" id="sid">
+              <label for="program">สาขาวิชา</label> 
+              <input type="text" name="program" id="program">
+              <label for="faculty">คณะ
+                   <select name="faculty" id="faculty">
+                       <option value="1">คณะวิทยาศาสตร์และเทคโนโลยี</option>
+                       <option value="2">คณะครุศาสตร์</option>
+                       <option value="3">คณะมนุษศาสตร์และสังคมศาสตร์</option>
+                       <option value="4">คณะวิทยาการจัดการ</option>
+                       <option value="5">คณะเทคโนโลยีการเกษตร</option>
+                       <option value="6">คณะเทคโนโลยีอุตสาหกรรม</option>
+                       <option value="7">คณะนิติศาสตร์</option>
+                       <option value="8">คณะวิทยาการคอมพิวเตอร์และเทคโนโลยีสารสนเทศ</option>
+                       <option value="9">คณะนิเทศศาสตร์</option>   
+                   </select>
+              </label><br>
+              <label for="ssid">รหัสบัตรประจำตัวประชาชน
+                <input type="text" name="ssid" id="ssid">
+              </label>
+              <label>เพศ
+                  <label for="genders">
+                     <input type="radio" name="gender" id="genders" value="m">ชาย
+                     <input type="radio" name="gender" id="genders" value="w">หญิง
+                  </label>
+              </label>     
+            </div>
+          </fieldset>
+          <input type="submit" name="ok" value ="ส่ง" onclick="validateForm()">
+          
+          <script type="text/javascript">
+             function validateForm(){
+                 var textThReg = /[ก-ฮ]/;
+                 var textEnReg = /[a-zA-z]/;
+                 var fname_th = document.getElementById('fname_th');
+                 var nameThResult = textThReg.test(fname_th.value);
+                 var fname_en = document.getElementById('fname_en');
+                 var nameEnResult = textEnReg.test(fname_en.value);
+    
+                 var numbersid = /[0-9]{10}/;
+                 var sub = /[ก-ฮ]/;
+                 var numberssid = /[0-9]{13}/;
+                 var sid = document.getElementById('sid');
+                 var sidtest = numbersid.test(sid.value);
+                 var program = document.getElementById('program');
+                 var programtest = sub.test(program.value);
+                 var ssid = document.getElementById('ssid')
+                 var ssidtest = numberssid.test(ssid.value);
+    
+                 if(nameThResult == false)
+                 {
+                    alert('ชื่อต้องกรอกภาษาไทย');
+                    return false;
+                 }
+                 if(nameEnResult == false)
+                 {
+                    alert('ชื่อต้องกรอกภาษาอังกฤษ');
+                    return false;
+                 }
+                 if(sidtest == false)
+                 {
+                    alert('ต้องใส่เป็นตัวเลข(10หลัก)');
+                    return false;
+                 }
+                 if(programtest == false)
+                 {
+                    alert('ต้องกรอกภาษาไทย');
+                    return false;
+                 }
+                 if(ssidtest == false)
+                 {
+                    alert('ต้องใส่เป็นตัวเลข(13หลัก)');
+                    return false;
+                 }
+                 alert('ข้อมูลครบถ้วน');
+                 return true;
+             }
+          </script>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js
+"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js
+"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
